@@ -6,5 +6,10 @@ div {
 button {
     background-color: rgb(13, 117, 22);
     color: #fff;
+    margin-right: 5px;
 
+}
+
+button::after {
+    background-color: blueviolet;
 }

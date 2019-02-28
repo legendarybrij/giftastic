@@ -83,7 +83,7 @@ $("#add-animal").on("click", function() {
     
 
     animalBut = $("<button>");
-    animalBut.addClass("animal");
+    animalBut.addClass("btn btn-success animal");
     animalBut.attr("data-animal",animal);
     
     animalBut.text(animal);
@@ -115,7 +115,7 @@ function renderButtons() {
     
     for(var i=0; i<animals.length; i++) {
     animalBut = $("<button>");
-    animalBut.addClass("animal");
+    animalBut.addClass("btn btn-success animal");
     animalBut.attr("data-animal",animals[i]);
     animalBut.val(animals[i]);
     
