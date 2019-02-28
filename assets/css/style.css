@@ -2,12 +2,15 @@ div {
     display: inline-block;
     margin-right: 10px;
 } 
-
+body{
+    margin-left: 20px;
+}
 button {
     background-color: rgb(13, 117, 22);
     color: #fff;
     margin-right: 5px;
     margin-bottom: 10px;
+    margin-top: 10px;
 
 }
 
