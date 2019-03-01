@@ -26,9 +26,9 @@ button::after {
 
 #animal-form {
     float: right;
-    display: inline-block;
+    display: relative;
     margin-top: 10px;
     margin-right: 60px;
     font-weight: bold;
-    
 }
+

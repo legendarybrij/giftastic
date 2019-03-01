@@ -1,13 +1,15 @@
 
 
-var animals = ["lion","panda", "sheep", "peacock", "dolphin", "eagle", "pony", "ape", "cow", "deer", "duck", "wolf", "turkey", "tiger", "snake", "shark", "bird", "bear", "fish", "chicken", "cat", "horse", "dog"];
-var random = [];
+var animals = ["lion","panda", "sheep", "peacock", "dolphin", "eagle", "pony", "ape", "cow", "deer", "duck", "wolf", "turkey", "tiger", "snake", "bird", "bear", "fish", "chicken", "cat", "horse", "dog"];
+var random = [];  
+var nextTen = 100; //This variable is used to pull gifs after first 100 gifs
+var results;  //This variable saves 1000 response request from Giphy
 
 $(document).ready(function(){
-
-
+    $(".more").hide();
+//This function animates and pauses the .gif image on click
     function animate() {
-         console.log("you are here")
+         
         var state= $(".gif").attr("data-state");
           
               if (state === "still"){
@@ -16,14 +18,14 @@ $(document).ready(function(){
               } else {
                 $(this).attr("data-state", "still").attr("src", $(this).attr("data-still"));
                 $(".gif").attr("data-state","still");
-                console.log($(".gif").attr("data-state"));
+                
               }
               
       }
 
+//This function displays initial gifs when clicked on any animal
     function displayGif() {
-        
-        //console.log("hello");
+
         var animal = $(this).attr("data-animal");
         var queryURL = "https://api.giphy.com/v1/gifs/search?q="+
         animal + "&api_key=7Mj3wQGHtOX85mskRa8PJKeGrMyVqwtR&limit=1000";
@@ -33,14 +35,16 @@ $(document).ready(function(){
         method: "GET"
         })
         .then(function(response) {
-            var results = response.data;
-            console.log(response);
+            results = response.data;
+           // This for loop creates 10 random numbers and saves into random array from 100 numbers 
+           // so when user click on the same animal button it generates different gifs instead of same 10
             for (var i=0; i<10; i++)
             {
                random[i] = Math.floor(Math.random()*100);
             }
+             
             $("#gifs-appear-here").empty();
-            //console.log(random);
+            
             for (var i = 0; i < 10; i++) {
             var gifDiv = $("<div>");
 
@@ -61,12 +65,17 @@ $(document).ready(function(){
            
             $("#gifs-appear-here").append(gifDiv);
             }
+            $(".more").show();
+
+            
+
         });
+        
     }
 
 
 
-// This function handles events where the add animal button is clicked
+// This function adds new animal into buttons div
 $("#add-animal").on("click", function() {
     // event.preventDefault() prevents submit button from trying to send a form.
     // Using a submit button instead of a regular button allows the user to hit
@@ -90,17 +99,45 @@ $("#add-animal").on("click", function() {
     animalBut.text(animal);
    
     $("#buttons").append(animalBut);
-    
-    
 
     renderButtons();
     }
 
   });
 
+//This function loops next 10 gifs after first 100 gifs
+  function nextTenLoop() {
+    
+    for (var i = nextTen; i < nextTen+10; i++) {
+        var gifDiv = $("<div>");
+
+        var rating = results[i].rating;
+
+        var p = $("<p>").text("Rating: " + rating);
+
+        var animalImage = $("<img>");
+        animalImage.attr("src", results[i].images.fixed_height_still.url);
+        animalImage.attr("data-still", results[i].images.fixed_height_still.url);
+        animalImage.attr("data-animate", results[i].images.fixed_height.url);
+        animalImage.attr("data-state", "still");
+        animalImage.addClass("gif");
+
+        gifDiv.prepend(p);
+        gifDiv.prepend(animalImage);
+        
+       
+        $("#gifs-appear-here").append(gifDiv);
+        }
+       
+       $(".more").show();
+        nextTen+=10;
+
+}
 
 
-$(document).on("click", "button", displayGif);
+
+$(document).on("click", ".more", nextTenLoop);
+$(document).on("click", ".animal", displayGif);
 $(document).on("click", ".gif", animate);
   renderButtons();
 
@@ -109,7 +146,7 @@ $(document).on("click", ".gif", animate);
 });
 
 
-
+//This function renders buttons for the array of animals given on top of this page
 function renderButtons() {
 
       $("#buttons").empty();
