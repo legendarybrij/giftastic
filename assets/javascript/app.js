@@ -1,6 +1,6 @@
 
 
-var animals = ["lion","panda", "sheep", "peacock", "dolphin", "eagle", "pony", "Ape", "Ape", "Cow", "Deer", "Duck", "Duck", "wolf", "turkey", "tiger", "snake", "shark", "bird", "Bear", "Fish", "Chicken", "cat", "horse", "dog"];
+var animals = ["lion","panda", "sheep", "peacock", "dolphin", "eagle", "pony", "ape", "cow", "deer", "duck", "wolf", "turkey", "tiger", "snake", "shark", "bird", "bear", "fish", "chicken", "cat", "horse", "dog"];
 var random = [];
 
 $(document).ready(function(){
