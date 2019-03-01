@@ -1,3 +1,35 @@
+html, body {
+    background: url(../images/background.gif) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#title {
+    font-size: 6vw;
+    font-weight: bold;
+    color:#6fedf1f8;
+    text-shadow: 0 0 5px rgb(223, 51, 223), 0 0 10px rgb(230, 28, 203), 0 0 20px #df41bc, 0 0 30px #f83831, 0 0 40px #f83131, 0 0 55px #f83831, 0 0 75px #f84831;
+}
+
+#info {
+    font-size: 2vw;
+    font-weight: bold;
+    color:#fff;
+    text-shadow: 0 0 5px rgb(223, 51, 223), 0 0 10px rgb(230, 28, 203), 0 0 20px #df41bc, 0 0 30px #f83831, 0 0 40px #f83131, 0 0 55px #f83831, 0 0 75px #f84831;
+}
+p {
+    color: #fff;
+}
+
+.more {
+    color: #fff;
+    text-shadow: 0 0 5px rgb(211, 215, 216), 0 0 10px rgb(228, 13, 13), 0 0 20px #ee1414, 0 0 30px #f83831, 0 0 40px #f83131, 0 0 55px #f83831, 0 0 75px #f84831;
+}
+.more:hover {
+    color: #fff;
+}
+
 div {
     display: inline-block;
     margin-right: 10px;
@@ -21,6 +53,10 @@ button::after {
 #add-animal {
     margin-bottom: 10px;
     background-color: rgb(13, 117, 22);
+    color: #fff;
+}
+
+label {
     color: #fff;
 }
 
