@@ -1,9 +1,10 @@
 
 
-var animals = ["lion","panda", "sheep", "peacock"];
+var animals = ["lion","panda", "sheep", "peacock", "dolphin", "eagle", "pony", "Ape", "Ape", "Cow", "Deer", "Duck", "Duck", "wolf", "turkey", "tiger", "snake", "shark", "bird", "Bear", "Fish", "Chicken", "cat", "horse", "dog"];
 var random = [];
 
 $(document).ready(function(){
+
 
     function animate() {
          console.log("you are here")
@@ -21,11 +22,11 @@ $(document).ready(function(){
       }
 
     function displayGif() {
-        $("#gifs-appear-here").empty();
+        
         //console.log("hello");
         var animal = $(this).attr("data-animal");
         var queryURL = "https://api.giphy.com/v1/gifs/search?q="+
-        animal + "&api_key=7Mj3wQGHtOX85mskRa8PJKeGrMyVqwtR&limit=100";
+        animal + "&api_key=7Mj3wQGHtOX85mskRa8PJKeGrMyVqwtR&limit=1000";
         
         $.ajax({
         url: queryURL,
@@ -38,7 +39,7 @@ $(document).ready(function(){
             {
                random[i] = Math.floor(Math.random()*100);
             }
-           
+            $("#gifs-appear-here").empty();
             //console.log(random);
             for (var i = 0; i < 10; i++) {
             var gifDiv = $("<div>");
@@ -125,7 +126,7 @@ function renderButtons() {
   }
   }
 
-  
+ 
  
 
 

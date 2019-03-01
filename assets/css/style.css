@@ -17,3 +17,18 @@ button {
 button::after {
     background-color: blueviolet;
 }
+
+#add-animal {
+    margin-bottom: 10px;
+    background-color: rgb(13, 117, 22);
+    color: #fff;
+}
+
+#animal-form {
+    float: right;
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 60px;
+    font-weight: bold;
+    
+}
