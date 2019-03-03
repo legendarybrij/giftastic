@@ -18,10 +18,21 @@
 </head>
 
 <body>
-  <div id="title">Welcome to World of Animal GIFS</div>  
-  <div id="info">Click on the animal button to display its GIF and you can also add an animal from input field below!!</div>  
-  <div id="buttons">  </div>
-  <form id="animal-form">
+  <div class ="col-md-12" id="title">Welcome to World of Animal GIFS</div>  
+  <div class ="col-md-12" id="info">Click on the animal button to display its GIF and you can also add an animal from input field below!!</div>
+  <div class ="col-md-12" id="animateInfo">Click on the image GIF below to animate and click again to pause it!! Enjoy the Zoo...</div>  
+  <div class=row>
+  <div class="col-2"></div>
+  <div class="btn btn-link col-md-8" id="buttons">  </div>
+  <div class="col-2"></div>
+  </div>
+  
+<div class=row>
+ <div class="col-md-1"></div>
+  <div class= "col-md-9" id="gifs-appear-here"></div>
+  <div class="col-md-2" id="form">
+
+        <form id="animal-form">
         <label for="animal-input">Add an animal</label>
         <input type="text" id="animal-input">
         <br>
@@ -30,9 +41,10 @@
         <input id="add-animal" class="btn bt-success" type="submit" value="Submit">
         
       </form>
+    </div>
+</div>
+<button class="col-11 more btn btn-link">Click Here To Load More</button>
 
-      <div id="gifs-appear-here"></div>
-      <button class="col-11 more btn btn-link">Click Here To Load More</button>
   
 </body>
 
